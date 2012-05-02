@@ -1,0 +1,92 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# DAVID THENON <sveetch@gmail.com>, 2012.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-05-02 22:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: DAVID THENON <sveetch@gmail.com>\n"
+"Language-Team: FRENCH <FR@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+
+#: crumbs.py:9
+msgid "Registration activation success"
+msgstr "Succès de l'activation d'inscription"
+
+#: crumbs.py:10
+msgid "Registration activation fail"
+msgstr "Échec de l'activation d'inscription"
+
+#: crumbs.py:11
+msgid "Register"
+msgstr "Inscription"
+
+#: crumbs.py:12
+msgid "Registration complete"
+msgstr "Inscription terminée"
+
+#: crumbs.py:13
+msgid "Registration disallowed"
+msgstr "Inscription impossible"
+
+#: crumbs.py:14
+msgid "Login"
+msgstr "Authentification"
+
+#: forms.py:20
+msgid "Continue"
+msgstr "Continuer"
+
+#: forms.py:31
+msgid "Ok"
+msgstr "Ok"
+
+#: templates/registration/activate.html:7
+msgid "The given activation key is not valid"
+msgstr "La clé d'activation fournie n'est pas valide"
+
+#: templates/registration/activate.html:8
+msgid "We can't process your activation"
+msgstr "Il est impossible de procéder à votre activation"
+
+#: templates/registration/activation_complete.html:7
+msgid "You have succeeded in activating your registration"
+msgstr "Vous avez activé votre inscription."
+
+#: templates/registration/activation_complete.html:9
+#, python-format
+msgid "Now you can <a href=\"%(login_url)s\">login</a>"
+msgstr "Vous pouvez maintenant tout <a href=\"%(login_url)s\">authentifier</a>"
+
+#: templates/registration/registration_closed.html:7
+msgid "You are not allowed to complete this registration"
+msgstr "Vous n'êtes pas autorisé à valider cette inscription"
+
+#: templates/registration/registration_closed.html:8
+msgid ""
+"This is probably because it has allready be activated or the delay to "
+"activate your account has expired"
+msgstr ""
+"Celà est probablement dûe au fait que l'activation a déjà été accomplie ou "
+"bien que le délai d'expiration est dépassé"
+
+#: templates/registration/registration_complete.html:7
+msgid "You have completed your registration"
+msgstr "Demande d'inscription terminée"
+
+#: templates/registration/registration_complete.html:8
+msgid ""
+"An activation email has been sent to your email account, you must use the "
+"activation link in this email to finally activate your account"
+msgstr ""
+"Un email d'activation a été envoyé sur l'adresse de votre compte, vous devez "
+"utiliser le lien d'activatio contenu dans cet email pour activer "
+"définitivement votre compte."
