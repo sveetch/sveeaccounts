@@ -1,0 +1,9 @@
+{% load i18n %}{% url registration_activate activation_key as activation_url %}{% blocktrans with website_url=site.domain %}Hi,
+
+You have filled a new registration that you must activate to finalize.
+
+Just click on the link below to proceed : http://{{ website_url }}/{{ activation_url }}
+
+This link will only be valid for {{ expiration_days }} days.
+
+Cheers.{% endblocktrans %}

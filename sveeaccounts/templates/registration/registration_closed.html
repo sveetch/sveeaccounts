@@ -1,0 +1,11 @@
+{% extends "registration/subbase.html" %}
+{% load i18n %}
+
+{% block content %}{{ block.super }}
+    <div class="topbox">
+        <div class="notice-box error-notice">
+            <h3>{% blocktrans %}You are not allowed to complete this registration{% endblocktrans %}</h3>
+            <p>{% blocktrans %}This is probably because it has allready be activated or the delay to activate your account has expired{% endblocktrans %}.</p>
+        </div>
+    </div>
+{% endblock %}

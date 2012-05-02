@@ -1,0 +1,12 @@
+{% extends "registration/subbase.html" %}
+{% load i18n %}
+
+{% block content %}{{ block.super }}
+    <div class="topbox">
+        <div class="notice-box success-notice">
+            <h3>{% blocktrans %}You have succeeded in activating your registration{% endblocktrans %}</h3>
+            {% url auth_login as login_url %}
+            <p>{% blocktrans %}Now you can <a href="{{ login_url }}">login</a>{% endblocktrans %}.</p>
+        </div>
+    </div>
+{% endblock %}
