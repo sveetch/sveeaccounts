@@ -1,0 +1,11 @@
+{% extends "registration/subbase.html" %}
+{% load i18n %}
+
+{% block content %}{{ block.super }}
+    <div class="topbox">
+        <div class="notice-box warning-notice">
+            <h3>{% blocktrans %}Registration blocked{% endblocktrans %}</h3>
+            <p>{% blocktrans %}This site does not accepts any registration{% endblocktrans %}.</p>
+        </div>
+    </div>
+{% endblock %}

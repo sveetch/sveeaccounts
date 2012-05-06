@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-02 22:20+0200\n"
+"POT-Creation-Date: 2012-05-06 13:35+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: DAVID THENON <sveetch@gmail.com>\n"
 "Language-Team: FRENCH <FR@li.org>\n"
@@ -66,27 +66,26 @@ msgstr "Vous avez activé votre inscription."
 msgid "Now you can <a href=\"%(login_url)s\">login</a>"
 msgstr "Vous pouvez maintenant tout <a href=\"%(login_url)s\">authentifier</a>"
 
+#: templates/registration/blocked.html:7
+msgid "Registration blocked"
+msgstr "Inscription bloquée"
+
+#: templates/registration/blocked.html:8
+msgid "This site does not accepts any registration"
+msgstr "Ce site n'accepte pas d'inscription"
+
 #: templates/registration/registration_closed.html:7
 msgid "You are not allowed to complete this registration"
 msgstr "Vous n'êtes pas autorisé à valider cette inscription"
 
 #: templates/registration/registration_closed.html:8
-msgid ""
-"This is probably because it has allready be activated or the delay to "
-"activate your account has expired"
-msgstr ""
-"Celà est probablement dûe au fait que l'activation a déjà été accomplie ou "
-"bien que le délai d'expiration est dépassé"
+msgid "This is probably because it has allready be activated or the delay to activate your account has expired"
+msgstr "Celà est probablement dûe au fait que l'activation a déjà été accomplie ou bien que le délai d'expiration est dépassé"
 
 #: templates/registration/registration_complete.html:7
 msgid "You have completed your registration"
 msgstr "Demande d'inscription terminée"
 
 #: templates/registration/registration_complete.html:8
-msgid ""
-"An activation email has been sent to your email account, you must use the "
-"activation link in this email to finally activate your account"
-msgstr ""
-"Un email d'activation a été envoyé sur l'adresse de votre compte, vous devez "
-"utiliser le lien d'activatio contenu dans cet email pour activer "
-"définitivement votre compte."
+msgid "An activation email has been sent to your email account, you must use the activation link in this email to finally activate your account"
+msgstr "Un email d'activation a été envoyé sur l'adresse de votre compte, vous devez utiliser le lien d'activatio contenu dans cet email pour activer définitivement votre compte."
