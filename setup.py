@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
     name='sveeaccounts',
     version=__import__('sveeaccounts').__version__,
-    description='Django application to embed all the registration stuff with captcha',
+    description=__import__('sveeaccounts').__doc__,
     long_description=open('README.rst').read(),
     author='David Thenon',
     author_email='sveetch@gmail.com',
