@@ -64,7 +64,7 @@ msgstr "Vous avez activé votre inscription."
 #: templates/registration/activation_complete.html:9
 #, python-format
 msgid "Now you can <a href=\"%(login_url)s\">login</a>"
-msgstr "Vous pouvez maintenant tout <a href=\"%(login_url)s\">authentifier</a>"
+msgstr "Vous pouvez maintenant vous <a href=\"%(login_url)s\">authentifier</a>"
 
 #: templates/registration/blocked.html:7
 msgid "Registration blocked"
@@ -80,7 +80,7 @@ msgstr "Vous n'êtes pas autorisé à valider cette inscription"
 
 #: templates/registration/registration_closed.html:8
 msgid "This is probably because it has allready be activated or the delay to activate your account has expired"
-msgstr "Celà est probablement dûe au fait que l'activation a déjà été accomplie ou bien que le délai d'expiration est dépassé"
+msgstr "Celà est probablement dû au fait que l'activation a déjà été accomplie ou bien que le délai d'expiration est dépassé"
 
 #: templates/registration/registration_complete.html:7
 msgid "You have completed your registration"
@@ -88,4 +88,4 @@ msgstr "Demande d'inscription terminée"
 
 #: templates/registration/registration_complete.html:8
 msgid "An activation email has been sent to your email account, you must use the activation link in this email to finally activate your account"
-msgstr "Un email d'activation a été envoyé sur l'adresse de votre compte, vous devez utiliser le lien d'activatio contenu dans cet email pour activer définitivement votre compte."
+msgstr "Un email d'activation a été envoyé sur l'adresse de votre compte, vous devez utiliser le lien d'activation contenu dans cet email pour activer définitivement votre compte."
