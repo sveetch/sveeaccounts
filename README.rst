@@ -1,5 +1,6 @@
 .. _autobreadcrumbs: http://pypi.python.org/pypi/autobreadcrumbs
 .. _Django: https://www.djangoproject.com/
+.. _django-braces: https://github.com/sveetch/django-braces
 .. _django-crispy-forms: https://github.com/maraujop/django-crispy-forms
 .. _django-simple-captcha: https://github.com/mbi/django-simple-captcha
 .. _django-registration: http://pypi.python.org/pypi/django-registration
@@ -13,7 +14,11 @@ Introduction
 This is not really intended to be a generic app, so use it at your own risk.
 
 Actually this is just an implementation of an inherited `django-registration`_ backend with 
-`django-simple-captcha`_ usage.
+`django-simple-captcha`_ usage and with a `UserProfileBase` abstract model (and his 
+form, and his form view) that can be used as a base for user profiles.
+
+A ``REGISTRATION_BLOCKED`` optionnal variable can be added in settings, if at ``True`` 
+the new registration form is blocked, default is ``False``.
 
 Links
 *****
@@ -27,6 +32,7 @@ Requires
 ========
 
 * `autobreadcrumbs`_;
+* My `django-braces`_ fork;
 * `django-registration`_ >= 0.8;
 * `django-simple-captcha`_ >= 0.3.4;
 * `django-crispy-forms`_ >= 1.1.x;
@@ -47,3 +53,4 @@ In your *settings* file add the app to your installed apps :
         ...
     )
 
+Then you have to mount its urls map in your webapp urls.
