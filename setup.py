@@ -23,6 +23,7 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
     install_requires=[
+        'PIL',
         'autobreadcrumbs',
         'django-registration==0.8',
         'django-simple-captcha==0.3.4',
