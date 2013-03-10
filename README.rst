@@ -4,6 +4,7 @@
 .. _django-crispy-forms: https://github.com/maraujop/django-crispy-forms
 .. _django-simple-captcha: https://github.com/mbi/django-simple-captcha
 .. _django-registration: http://pypi.python.org/pypi/django-registration
+.. _Pillow: https://pypi.python.org/pypi/Pillow
 
 Introduction
 ============
@@ -39,6 +40,21 @@ Requires
 
 Install
 =======
+
+PIL issue
+*********
+
+If you are installing this module within a **virtualenv**, you would have issue with PIL that probably won't be compiled with the **Freetype** support that is used by `django-simple-captcha`_.
+
+To resolve this, uninstall your PIL install within your **virtualenv** : ::
+
+    pip uninstall PIL
+
+Then you will have to install Freetype2 devel library on your system with your prefered package manager, then install `Pillow`_ : ::
+
+    pip install Pillow
+
+It will detect the devel libraries from your system and will compile with their support, problem resolved.
 
 Settings
 ********

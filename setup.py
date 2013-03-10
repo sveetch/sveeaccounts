@@ -27,6 +27,7 @@ setup(
         'django-registration>=0.8',
         'django-simple-captcha>=0.3.4',
         'django-crispy-forms>=1.1.2',
+        'django-braces>=0.2.1',
     ],
     include_package_data=True,
     zip_safe=False
