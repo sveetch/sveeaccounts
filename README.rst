@@ -26,8 +26,6 @@ Links
 
 * Download his `PyPi package <http://pypi.python.org/pypi/sveeaccounts>`_;
 * Clone it on his `Github repository <https://github.com/sveetch/sveeaccounts>`_;
-* Documentation and demo to come on his 
-  `DjangoSveetchies page <http://sveetchies.sveetch.net/sveeaccounts/>`_.
 
 Requires
 ========
@@ -36,6 +34,12 @@ Requires
 * My `django-braces`_ fork;
 * `django-registration`_ >= 0.8;
 * `django-simple-captcha`_ >= 0.3.4;
+
+Optionnal
+*********
+
+This is optional in install, but not in templates where its used. If you don't use it, you will have to override the templates to remove the `django-crispy-forms`_ tags usages.
+
 * `django-crispy-forms`_ >= 1.1.x;
 
 Install
@@ -70,3 +74,16 @@ In your *settings* file add the app to your installed apps :
     )
 
 Then you have to mount its urls map in your webapp urls.
+
+Usage
+=====
+
+If you have installed `django-crispy-forms`_ you can specify your own form helper for registration and login forms. To do this you will have to specify the full Python path to your helper methods to use.
+
+In your settings add these variables :
+
+* ``REGISTRATION_FORM_HELPER`` for the registration form;
+* ``REGISTRATION_LOGIN_HELPER`` for the login form;
+* ``REGISTRATION_USERPROFILE_HELPER`` for the optional userprofile edit form if you use it;
+
+The methods which these Python path point just have to return the helper you did, see the ``sveeaccounts.crispies`` code for samples.

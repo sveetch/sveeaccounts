@@ -1,64 +1,39 @@
 # -*- coding: utf-8 -*-
 from django import forms
+from django.conf import settings
 from django.contrib.auth.forms import AuthenticationForm
 from django.utils.translation import ugettext
 
 from registration.forms import RegistrationFormUniqueEmail
 
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Fieldset, Div, Submit
-from crispy_forms.bootstrap import FormActions
-
 from captcha.fields import CaptchaField
 
 from sveeaccounts.models import UserProfileBase
+from sveeaccounts.crispies import get_form_helper, default_helper, UserProfileBaseHelper
 
 class RegistrationWithCaptchaForm(RegistrationFormUniqueEmail):
     captcha = CaptchaField()
     
     def __init__(self, *args, **kwargs):
-        self.helper = FormHelper()
-        self.helper.form_action = '.'
-        self.helper.form_style = 'inline'
-        self.helper.add_input(Submit('submit', ugettext('Continue')))
+        helper = get_form_helper(getattr(settings, 'REGISTRATION_FORM_HELPER', None), default=default_helper)
+        if helper is not None:
+            self.helper = helper()
         
         super(RegistrationWithCaptchaForm, self).__init__(*args, **kwargs)
+
+
 
 class LoginForm(AuthenticationForm):
     
     def __init__(self, *args, **kwargs):
-        self.helper = FormHelper()
-        self.helper.form_action = '.'
-        self.helper.form_style = 'inline'
-        self.helper.form_class = 'tiny'
-        self.helper.add_input(Submit('submit', ugettext('Ok')))
+        helper = get_form_helper(getattr(settings, 'REGISTRATION_LOGIN_HELPER', None), default=default_helper)
+        if helper is not None:
+            self.helper = helper()
         
         super(LoginForm, self).__init__(*args, **kwargs)
 
-def UserProfileBaseLayout():
-    """
-    Return the default layout, this must be wrapped in a function to correct 
-    translations
-    """
-    return Layout(
-        Fieldset(
-            ugettext('account'),
-            'new_password1',
-            'new_password2',
-        ),
-        Fieldset(
-            ugettext('identity'),
-            'first_name',
-            'last_name',
-            'email',
-            'adress',
-            'town',
-            'zipcode',
-            'phone_number',
-            'mobile_number',
-        ),
-    )
-    
+
+
 class UserProfileBaseForm(forms.ModelForm):
     """
     User profile form
@@ -73,16 +48,9 @@ class UserProfileBaseForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         self.author = kwargs.pop('user')
         
-        self.helper = FormHelper()
-        self.helper.form_action = '.'
-        self.helper.form_class = 'form-horizontal well'
-        self.helper.form_style = 'inline'
-        self.helper.layout = Layout(
-            kwargs.pop('layout', UserProfileBaseLayout()),
-            FormActions(
-                Submit('submit', 'Submit'),
-            )
-        )
+        helper = get_form_helper(getattr(settings, 'REGISTRATION_USERPROFILE_HELPER', None), default=UserProfileBaseHelper)
+        if helper is not None:
+            self.helper = helper()
         
         super(UserProfileBaseForm, self).__init__(*args, **kwargs)
 
