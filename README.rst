@@ -38,8 +38,6 @@ Requires
 Optionnal
 *********
 
-This is optional in install, but not in templates where its used. If you don't use it, you will have to override the templates to remove the `django-crispy-forms`_ tags usages.
-
 * `django-crispy-forms`_ >= 1.1.x;
 
 Install
@@ -87,3 +85,5 @@ In your settings add these variables :
 * ``REGISTRATION_USERPROFILE_HELPER`` for the optional userprofile edit form if you use it;
 
 The methods which these Python path point just have to return the helper you did, see the ``sveeaccounts.crispies`` code for samples.
+
+Note that if you use `django-crispy-forms`_ you will have to override template form like ``login.html`` and ``registration.html`` to add the `django-crispy-forms`_ tags usage.

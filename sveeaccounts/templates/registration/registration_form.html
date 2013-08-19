@@ -1,7 +1,21 @@
 {% extends "registration/base.html" %}
-{% load i18n crispy_forms_tags %}
+{% load i18n %}
 
-{% block content %}{{ block.super }}
+{% block content %}
+    <div class="row">
+        <div class="six columns centered">
+            {{ block.super }}
+            <form method="post" action=".">
+                {% csrf_token %}
+                {{ form.as_p }}
 
-{% crispy form %}
+                <div class="row">
+                    <div class="twelve columns text-right">
+                        <input type="submit" class="submit button" value="{% trans 'Submit' %}" />
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
 {% endblock %}
