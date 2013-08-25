@@ -2,26 +2,21 @@
 {% load i18n %}
 {% load url from future %}
 
-{% block content %}
-    <div class="row">
-        <div class="five columns centered">
-            {{ block.super }}
-            <form method="post" action=".">
-                {% csrf_token %}
-                {{ form.as_p }}
+{% block registration_content %}
+    {{ block.super }}
+    <form method="post" action=".">
+        {% csrf_token %}
+        {{ form.as_p }}
 
-                <div class="row">
-                    <div class="seven columns">
-                        {% comment %}<p>{% trans "Forgot password" %}? <a href="{% url 'auth_password_reset' %}">{% trans "Reset it" %}</a>!</p>{% endcomment %}
-                        <p>{% trans "Not member" %}? <a href="{% url 'registration_register' %}">{% trans "Register" %}</a>!</p>
-                    </div>
-                    <div class="five columns text-right">
-                        <input type="submit" class="submit button" value="{% trans 'Log in' %}" />
-                        <input type="hidden" name="next" value="{{ next }}" />
-                    </div>
-                </div>
-            </form>
-
+        <div class="row">
+            <div class="seven columns">
+                {% comment %}<p>{% trans "Forgot password" %}? <a href="{% url 'auth_password_reset' %}">{% trans "Reset it" %}</a>!</p>{% endcomment %}
+                <p>{% trans "Not member" %}? <a href="{% url 'registration_register' %}">{% trans "Register" %}</a>!</p>
+            </div>
+            <div class="five columns text-right">
+                <input type="submit" class="submit button" value="{% trans 'Log in' %}" />
+                <input type="hidden" name="next" value="{{ next }}" />
+            </div>
         </div>
-    </div>
+    </form>
 {% endblock %}

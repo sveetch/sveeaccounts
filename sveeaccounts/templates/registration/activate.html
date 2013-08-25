@@ -1,11 +1,7 @@
 {% extends "registration/base.html" %}
 {% load i18n %}
 
-{% block content %}{{ block.super }}
-    <div class="topbox">
-        <div class="notice-box error-notice">
-            <h3>{% blocktrans %}The given activation key is not valid{% endblocktrans %}</h3>
-            <p>{% blocktrans %}We can't process your activation{% endblocktrans %}.</p>
-        </div>
-    </div>
+{% block registration_content %}{{ block.super }}
+    <h3>{% blocktrans %}The given activation key is not valid{% endblocktrans %}</h3>
+    <p>{% blocktrans %}We can't process your activation{% endblocktrans %}.</p>
 {% endblock %}
