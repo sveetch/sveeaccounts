@@ -12,4 +12,5 @@ site.update({
     'registration_complete': ugettext_lazy('Registration complete'),
     'registration_disallowed': ugettext_lazy('Registration disallowed'),
     'auth_login': ugettext_lazy('Login'),
+    'auth_user_form': ugettext_lazy('Your account'),
 })

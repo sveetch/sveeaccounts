@@ -55,35 +55,3 @@ else:
         helper.form_style = 'inline'
         helper.add_input(Submit('submit', ugettext('Submit')))
         return helper
-
-    def UserProfileBaseHelper():
-        """
-        Return the default helper for the UserProfile
-        """
-        helper = FormHelper()
-        helper.form_action = '.'
-        helper.form_class = 'form-horizontal well'
-        helper.form_style = 'inline'
-        helper.layout = Layout(
-            Fieldset(
-                ugettext('account'),
-                'new_password1',
-                'new_password2',
-            ),
-            Fieldset(
-                ugettext('identity'),
-                'first_name',
-                'last_name',
-                'email',
-                'adress',
-                'town',
-                'zipcode',
-                'phone_number',
-                'mobile_number',
-            ),
-            FormActions(
-                Submit('submit', 'Submit'),
-            )
-        )
-        
-        return helper

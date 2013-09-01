@@ -10,6 +10,7 @@ from registration.views import activate
 from registration.views import register
 
 from sveeaccounts.forms import LoginForm
+from sveeaccounts.views import AccountUserForm
 
 REGISTRATION_BLOCKED = getattr(settings, 'REGISTRATION_BLOCKED', False)
 
@@ -59,4 +60,8 @@ else:
             auth_views.logout_then_login,
             {'login_url': '/'},
             name='auth_logout'),
+        
+        url(r'^profile/$',
+            AccountUserForm.as_view(),
+            name='auth_user_form'),
     )

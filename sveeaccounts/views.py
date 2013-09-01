@@ -5,31 +5,37 @@ Accounts views
 from django.views.generic import UpdateView
 from django.core.urlresolvers import reverse
 
-from braces.views import UserFormKwargsMixin, LoginRequiredMixin
+from django.contrib.auth.models import User
 
-from sveeaccounts.models import UserProfileBase
-from sveeaccounts.forms import UserProfileBaseForm
+from braces.views import LoginRequiredMixin
 
-class MyAccountBaseView(LoginRequiredMixin, UserFormKwargsMixin, UpdateView):
+from sveeaccounts.forms import UserForm
+
+class AccountUserForm(LoginRequiredMixin, UpdateView):
     """
     The form view to edit the user account and his profile
     
     The following attributes are required and you have also to define a 
     'get_success_url' method.
     """
-    template_name = None # Required
-    form_class = UserProfileBaseForm
-    model = None # Required. This should be assigned with your profile model
+    template_name = "registration/user_form.html"
+    form_class = UserForm
+    model = User
     
     def get_object(self, *args, **kwargs):
-        return self.request.user.get_profile()
+        return self.request.user
+    
+    def get_success_url(self):
+        return reverse('auth_user_form')
     
     def get_initial(self):
         """
         Returns the initial data to use for forms on this view.
         """
+        u = self.get_object()
         return {
-            'first_name': self.request.user.first_name,
-            'last_name': self.request.user.last_name,
-            'email': self.request.user.email,
+            'first_name': u.first_name,
+            'last_name': u.last_name,
+            'email': u.email,
         }
+

@@ -1,0 +1,16 @@
+{% extends "registration/base.html" %}
+{% load i18n %}
+
+{% block registration_content %}
+    {{ block.super }}
+    <form method="post" action=".">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <div class="row">
+            <div class="twelve columns text-right">
+                <input type="submit" class="submit button" value="{% trans 'Submit' %}" />
+            </div>
+        </div>
+    </form>
+{% endblock %}

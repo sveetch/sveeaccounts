@@ -8,8 +8,7 @@ from registration.forms import RegistrationFormUniqueEmail
 
 from captcha.fields import CaptchaField
 
-from sveeaccounts.models import UserProfileBase
-from sveeaccounts.crispies import get_form_helper, default_helper, UserProfileBaseHelper
+from sveeaccounts.crispies import get_form_helper, default_helper
 
 class RegistrationWithCaptchaForm(RegistrationFormUniqueEmail):
     captcha = CaptchaField()
@@ -22,7 +21,6 @@ class RegistrationWithCaptchaForm(RegistrationFormUniqueEmail):
         super(RegistrationWithCaptchaForm, self).__init__(*args, **kwargs)
 
 
-
 class LoginForm(AuthenticationForm):
     
     def __init__(self, *args, **kwargs):
@@ -33,10 +31,9 @@ class LoginForm(AuthenticationForm):
         super(LoginForm, self).__init__(*args, **kwargs)
 
 
-
-class UserProfileBaseForm(forms.ModelForm):
+class UserForm(forms.Form):
     """
-    User profile form
+    User form
     """
     # Bind only some fields from the user model
     first_name = forms.CharField(label=ugettext('first name'), max_length=30, required=True)
@@ -46,13 +43,13 @@ class UserProfileBaseForm(forms.ModelForm):
     new_password2 = forms.CharField(label=ugettext("Password (again)"), widget=forms.PasswordInput, required=False)
     
     def __init__(self, *args, **kwargs):
-        self.author = kwargs.pop('user')
+        self.instance = kwargs.pop('instance')
         
-        helper = get_form_helper(getattr(settings, 'REGISTRATION_USERPROFILE_HELPER', None), default=UserProfileBaseHelper)
+        helper = get_form_helper(getattr(settings, 'REGISTRATION_USER_EDIT_HELPER', None), default=default_helper)
         if helper is not None:
             self.helper = helper()
         
-        super(UserProfileBaseForm, self).__init__(*args, **kwargs)
+        super(UserForm, self).__init__(*args, **kwargs)
 
     def clean_new_password2(self):
         password1 = self.cleaned_data.get('new_password1')
@@ -63,18 +60,11 @@ class UserProfileBaseForm(forms.ModelForm):
         return password2
     
     def save(self, *args, **kwargs):
-        instance = super(UserProfileBaseForm, self).save(commit=True, *args, **kwargs)
-        
-        u = instance.user
-        u.first_name = self.cleaned_data["first_name"]
-        u.last_name = self.cleaned_data["last_name"]
-        u.email = self.cleaned_data["email"]
-        u.save()
+        self.instance.first_name = self.cleaned_data["first_name"]
+        self.instance.last_name = self.cleaned_data["last_name"]
+        self.instance.email = self.cleaned_data["email"]
+        self.instance.save()
         if self.cleaned_data.get("new_password2", None) and len(self.cleaned_data["new_password2"].strip())>0:
-            u.set_password(self.cleaned_data["new_password2"])
+            self.instance.set_password(self.cleaned_data["new_password2"])
         
-        return instance
-    
-    class Meta:
-        model = UserProfileBase
-        exclude = ('user',)
+        return self.instance
