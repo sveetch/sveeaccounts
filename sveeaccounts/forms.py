@@ -36,8 +36,8 @@ class UserForm(forms.Form):
     User form
     """
     # Bind only some fields from the user model
-    first_name = forms.CharField(label=ugettext('first name'), max_length=30, required=True)
-    last_name = forms.CharField(label=ugettext("last name"), max_length=30, required=True)
+    first_name = forms.CharField(label=ugettext('First name'), max_length=30, required=True)
+    last_name = forms.CharField(label=ugettext("Last name"), max_length=30, required=True)
     email = forms.EmailField(label=ugettext("E-mail"), max_length=75, required=True)
     new_password1 = forms.CharField(label=ugettext("Password"), widget=forms.PasswordInput, required=False)
     new_password2 = forms.CharField(label=ugettext("Password (again)"), widget=forms.PasswordInput, required=False)
