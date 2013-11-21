@@ -49,9 +49,10 @@ except ImportError:
     def UserProfileBaseHelper():
         return None
 else:
-    def default_helper():
+    def default_helper(form_tag=True):
         helper = FormHelper()
         helper.form_action = '.'
+        helper.form_tag = form_tag
         helper.form_style = 'inline'
         helper.add_input(Submit('submit', ugettext('Submit')))
         return helper

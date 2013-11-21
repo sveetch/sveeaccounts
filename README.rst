@@ -14,12 +14,13 @@ Introduction
 
 This is not really intended to be a generic app, so use it at your own risk.
 
-Actually this is just an implementation of an inherited `django-registration`_ backend with 
+It is an implementation of an inherited `django-registration`_ backend with 
 `django-simple-captcha`_ usage and with a `UserProfileBase` abstract model (and his 
-form, and his form view) that can be used as a base for user profiles.
+form, and his form view) that can be used as a base for user profiles. 
 
-A ``REGISTRATION_BLOCKED`` optionnal variable can be added in settings, if at ``True`` 
-the new registration form is blocked, default is ``False``.
+Also it implements `autobreadcrumbs`_, optionnal user profile form, optionnal password 
+reset views, `django-crispy-forms`_ is fully supported and it contains all needed 
+templates to demonstrate usage.
 
 Links
 *****
@@ -31,7 +32,7 @@ Requires
 ========
 
 * `autobreadcrumbs`_;
-* My `django-braces`_ fork;
+* `django-braces`_ >= 0.2.1;
 * `django-registration`_ >= 0.8;
 * `django-simple-captcha`_ >= 0.3.4;
 
@@ -66,23 +67,29 @@ In your *settings* file add the app to your installed apps :
 ::
 
     INSTALLED_APPS = (
-        ...
+        'registration',
+        'captcha'
         'sveeaccounts',
         ...
     )
 
-Then you have to mount its urls map in your webapp urls.
+Then you have to mount its urls map in your webapp urls. It is recommended to add them **before** 'django.contrib.auth'.
 
 Usage
 =====
 
 If you have installed `django-crispy-forms`_ you can specify your own form helper for registration and login forms. To do this you will have to specify the full Python path to your helper methods to use.
 
-In your settings add these variables :
+In your settings you can add the following variables, all of them are optionnal :
 
 * ``REGISTRATION_FORM_HELPER`` for the registration form;
 * ``REGISTRATION_LOGIN_HELPER`` for the login form;
-* ``REGISTRATION_USERPROFILE_HELPER`` for the optional userprofile edit form if you use it;
+* ``REGISTRATION_USERPROFILE_HELPER`` for the userprofile edit form;
+* ``REGISTRATION_PASSWORD_RESET_HELPER`` for the password reset form (where it asks your email);
+* ``REGISTRATION_PASSWORD_RESET_CHANGE_HELPER`` for the password change form (where it asks you for a new password);
+* ``REGISTRATION_BLOCKED`` if ``True`` the registration form is blocked, users can't register but still can log in, default is ``False``.
+* ``PASSWORD_RESET_BLOCKED`` if ``True`` the password reset views will be disabled, default is ``False``.
+* ``USER_PROFILE_BLOCKED`` if ``True`` the user profile form will be disabled, default is ``False``.
 
 The methods which these Python path point just have to return the helper you did, see the ``sveeaccounts.crispies`` code for samples.
 

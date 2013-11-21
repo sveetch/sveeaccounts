@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-21 00:37+0100\n"
+"POT-Creation-Date: 2013-11-22 00:19+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: DAVID THENON <sveetch@gmail.com>\n"
 "Language-Team: FRENCH <FR@li.org>\n"
@@ -17,7 +17,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
 
-#: crispies.py:56 templates/registration/registration_form.html:12
+#: crispies.py:57 templates/registration/password_reset_confirm.html:19
+#: templates/registration/password_reset_form.html:18
+#: templates/registration/registration_form.html:12
 #: templates/registration/user_form.html:12
 msgid "Submit"
 msgstr "Soumettre"
@@ -50,27 +52,43 @@ msgstr "Authentification"
 msgid "Your account"
 msgstr "Votre compte"
 
-#: forms.py:39
+#: crumbs.py:17
+msgid "Password reset"
+msgstr "Réinitialisation du mot de passe"
+
+#: crumbs.py:18
+msgid "Give a new password"
+msgstr "Donnez un nouveau mot de passe"
+
+#: crumbs.py:19
+msgid "Email sended"
+msgstr "Courriel envoyé"
+
+#: crumbs.py:20
+msgid "Complete"
+msgstr "Terminé"
+
+#: forms.py:63
 msgid "First name"
 msgstr "Prénom"
 
-#: forms.py:40
+#: forms.py:64
 msgid "Last name"
 msgstr "Nom"
 
-#: forms.py:41
+#: forms.py:65
 msgid "E-mail"
 msgstr "Courriel"
 
-#: forms.py:42
+#: forms.py:66
 msgid "Password"
 msgstr "Mot de passe"
 
-#: forms.py:43
+#: forms.py:67
 msgid "Password (again)"
 msgstr "Mot de passe (à nouveau)"
 
-#: forms.py:59
+#: forms.py:83
 msgid "The two password fields didn't match."
 msgstr "Les deux mots de passe ne correpondent pas."
 
@@ -133,9 +151,39 @@ msgstr "Ce site n'accepte pas d'inscription"
 msgid "Not member"
 msgstr "Non membre"
 
-#: templates/registration/login.html:18
+#: templates/registration/login.html:16
+msgid "Lost password"
+msgstr "Mot de passe oublié"
+
+#: templates/registration/login.html:16
+msgid "Ask for a new one"
+msgstr "Demandez-un nouveau"
+
+#: templates/registration/login.html:19
+#: templates/registration/password_reset_complete.html:11
 msgid "Log in"
 msgstr "Authentification"
+
+#: templates/registration/password_reset_complete.html:9
+msgid "Password reset successfully"
+msgstr "Mot de passe changé avec succès"
+
+#: templates/registration/password_reset_complete.html:11
+msgid "Now you can"
+msgstr "Maintenant vous pouvez"
+
+#: templates/registration/password_reset_confirm.html:25
+msgid "Password reset failed"
+msgstr "Échec du changement de mot de passe"
+
+#: templates/registration/password_reset_done.html:8
+msgid "Email with password reset instructions has been sent."
+msgstr "Un email vous a été envoyé avec un lien de confirmation."
+
+#: templates/registration/password_reset_email.html:3
+#, python-format
+msgid "Reset password at %(site_name)s"
+msgstr "Changement de mot de passe sur %(site_name)s"
 
 #: templates/registration/registration_closed.html:5
 msgid "You are not allowed to complete this registration"

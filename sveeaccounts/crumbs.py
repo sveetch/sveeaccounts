@@ -13,4 +13,9 @@ site.update({
     'registration_disallowed': ugettext_lazy('Registration disallowed'),
     'auth_login': ugettext_lazy('Login'),
     'auth_user_form': ugettext_lazy('Your account'),
+    
+    'auth_password_reset': ugettext_lazy('Password reset'),
+    'auth_password_reset_confirm': ugettext_lazy('Give a new password'),
+    'password_reset_done': ugettext_lazy('Email sended'),
+    'password_reset_complete': ugettext_lazy('Complete'),
 })

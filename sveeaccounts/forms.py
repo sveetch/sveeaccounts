@@ -1,7 +1,12 @@
 # -*- coding: utf-8 -*-
+"""
+All these form can use a custom django-crispy-forms layout from their layout setting
+"""
 from django import forms
 from django.conf import settings
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import PasswordResetForm as PasswordResetBaseForm
+from django.contrib.auth.forms import SetPasswordForm as SetPasswordBaseForm
 from django.utils.translation import ugettext
 
 from registration.forms import RegistrationFormUniqueEmail
@@ -9,6 +14,25 @@ from registration.forms import RegistrationFormUniqueEmail
 from captcha.fields import CaptchaField
 
 from sveeaccounts.crispies import get_form_helper, default_helper
+
+class PasswordResetForm(PasswordResetBaseForm):
+    def __init__(self, *args, **kwargs):
+        self.helper = default_helper(form_tag=False)
+        helper = get_form_helper(getattr(settings, 'REGISTRATION_PASSWORD_RESET_HELPER', None), default=default_helper)
+        if helper is not None:
+            self.helper = helper()
+        
+        super(PasswordResetForm, self).__init__(*args, **kwargs)
+
+class PasswordResetChangeForm(SetPasswordBaseForm):
+    def __init__(self, *args, **kwargs):
+        self.helper = default_helper(form_tag=False)
+        helper = get_form_helper(getattr(settings, 'REGISTRATION_PASSWORD_RESET_CHANGE_HELPER', None), default=default_helper)
+        if helper is not None:
+            self.helper = helper()
+        
+        super(PasswordResetChangeForm, self).__init__(*args, **kwargs)
+
 
 class RegistrationWithCaptchaForm(RegistrationFormUniqueEmail):
     captcha = CaptchaField()
@@ -33,7 +57,7 @@ class LoginForm(AuthenticationForm):
 
 class UserForm(forms.Form):
     """
-    User form
+    Form for user to change his infos
     """
     # Bind only some fields from the user model
     first_name = forms.CharField(label=ugettext('First name'), max_length=30, required=True)
