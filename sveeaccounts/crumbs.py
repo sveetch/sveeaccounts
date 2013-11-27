@@ -16,6 +16,6 @@ site.update({
     
     'auth_password_reset': ugettext_lazy('Password reset'),
     'auth_password_reset_confirm': ugettext_lazy('Give a new password'),
-    'password_reset_done': ugettext_lazy('Email sended'),
+    'password_reset_done': ugettext_lazy('Email sent'),
     'password_reset_complete': ugettext_lazy('Complete'),
 })

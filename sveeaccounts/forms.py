@@ -90,5 +90,6 @@ class UserForm(forms.Form):
         self.instance.save()
         if self.cleaned_data.get("new_password2", None) and len(self.cleaned_data["new_password2"].strip())>0:
             self.instance.set_password(self.cleaned_data["new_password2"])
+            self.instance.save()
         
         return self.instance

@@ -61,7 +61,7 @@ msgid "Give a new password"
 msgstr "Donnez un nouveau mot de passe"
 
 #: crumbs.py:19
-msgid "Email sended"
+msgid "Email sent"
 msgstr "Courriel envoyé"
 
 #: crumbs.py:20
