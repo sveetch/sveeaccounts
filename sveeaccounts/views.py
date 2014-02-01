@@ -8,8 +8,12 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 
 from braces.views import LoginRequiredMixin
+from registration.backends.default.views import RegistrationView as DefaultRegistrationView
 
-from sveeaccounts.forms import UserForm
+from sveeaccounts.forms import UserForm, RegistrationWithCaptchaForm
+
+class RegistrationView(DefaultRegistrationView):
+    form_class = RegistrationWithCaptchaForm
 
 class AccountUserForm(LoginRequiredMixin, UpdateView):
     """

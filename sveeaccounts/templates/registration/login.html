@@ -1,6 +1,5 @@
 {% extends "registration/base.html" %}
 {% load i18n %}
-{% load url from future %}
 
 {% block registration_content %}
     {{ block.super }}
@@ -9,14 +8,13 @@
         {{ form.as_p }}
 
         <div class="row">
-            <div class="seven columns">
-                {% comment %}<p>{% trans "Forgot password" %}? <a href="{% url 'auth_password_reset' %}">{% trans "Reset it" %}</a>!</p>{% endcomment %}
-                <p>{% trans "Not member" %}? <a href="{% url 'registration_register' %}">{% trans "Register" %}</a>!</p>
-                <p>{% trans "Lost password" %}? <a href="{% url 'auth_password_reset' %}">{% trans "Ask for a new one" %}</a>!</p>
+            <div class="small-7 columns">
+                <p>{% trans "Not member" %}? <a href="{% url 'registration_register' %}">{% trans "Register" %}</a></p>
+                <p>{% trans "Lost password" %}? <a href="{% url 'auth_password_reset' %}">{% trans "Ask for a new one" %}</a></p>
             </div>
-            <div class="five columns text-right">
-                <input type="submit" class="submit button" value="{% trans 'Log in' %}" />
-                <input type="hidden" name="next" value="{{ next }}" />
+            <div class="small-5 columns text-right">
+                <input type="submit" class="submit button" value="{% trans 'Login' %}">
+                <input type="hidden" name="next" value="{{ next }}">
             </div>
         </div>
     </form>

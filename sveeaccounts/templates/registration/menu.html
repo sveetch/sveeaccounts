@@ -1,0 +1,15 @@
+{% if user.is_authenticated %}
+    <p><a href="{% url 'auth_user_form' %}"><strong>{{ user.username }}</strong></a></p>
+    <ul class="dropdown">
+        {% if user.is_staff %}
+            <li><a href="{% url 'admin:index' %}">{% trans "Django admin" %}</a></li>
+            <li class="divider"></li>
+        {% endif %}
+        <li><a href="{% url 'auth_logout' %}">{% trans "Logout" %}</a></li>
+    </ul>
+{% else %}
+    <p><a href="{% url 'auth_login' %}?next={{ request.path }}">{% trans "Login" %}</a></p>
+    <ul class="dropdown">
+        <li><a href="{% url 'registration_register' %}">{% trans "Register" %}</a></li>
+    </ul>
+{% endif %}

@@ -24,9 +24,9 @@ setup(
     ],
     install_requires=[
         'autobreadcrumbs',
-        'django-registration>=0.8',
-        'django-simple-captcha>=0.3.4',
-        'django-braces>=0.2.1',
+        'django-registration>=1.0',
+        'django-simple-captcha>=0.4.1',
+        'django-braces>=1.0.0',
     ],
     include_package_data=True,
     zip_safe=False

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-22 00:19+0100\n"
+"POT-Creation-Date: 2014-02-01 19:57+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: DAVID THENON <sveetch@gmail.com>\n"
 "Language-Team: FRENCH <FR@li.org>\n"
@@ -32,7 +32,8 @@ msgstr "Succès de l'activation d'inscription"
 msgid "Registration activation fail"
 msgstr "Échec de l'activation d'inscription"
 
-#: crumbs.py:11 templates/registration/login.html:15
+#: crumbs.py:11 templates/registration/login.html:12
+#: templates/registration/menu.html:13
 msgid "Register"
 msgstr "Inscription"
 
@@ -44,7 +45,8 @@ msgstr "Inscription terminée"
 msgid "Registration disallowed"
 msgstr "Inscription impossible"
 
-#: crumbs.py:14
+#: crumbs.py:14 templates/registration/login.html:16
+#: templates/registration/menu.html:11
 msgid "Login"
 msgstr "Authentification"
 
@@ -97,17 +99,17 @@ msgid "The given activation key is not valid"
 msgstr "La clé d'activation fournie n'est pas valide"
 
 #: templates/registration/activate.html:6
-msgid "We can't process your activation"
-msgstr "Il est impossible de procéder à votre activation"
+msgid "We can't process your activation."
+msgstr "Il est impossible de procéder à votre activation."
 
-#: templates/registration/activation_complete.html:6
+#: templates/registration/activation_complete.html:5
 msgid "You have succeeded in activating your registration"
-msgstr "Vous avez activé votre inscription."
+msgstr "Vous avez activé votre inscription"
 
-#: templates/registration/activation_complete.html:8
+#: templates/registration/activation_complete.html:7
 #, python-format
-msgid "Now you can <a href=\"%(login_url)s\">login</a>"
-msgstr "Vous pouvez maintenant vous <a href=\"%(login_url)s\">authentifier</a>"
+msgid "Now you can <a href=\"%(login_url)s\">Login</a>."
+msgstr "Vous pouvez maintenant vous <a href=\"%(login_url)s\">authentifier</a>."
 
 #: templates/registration/activation_email.txt:1
 #, python-format
@@ -116,7 +118,7 @@ msgid ""
 "\n"
 "You have filled a new registration that you must activate to finalize.\n"
 "\n"
-"Just click on the link below to proceed : http://%(website_url)s/%"
+"Just click on the link below to proceed : http://%(website_url)s%"
 "(activation_url)s\n"
 "\n"
 "This link will only be valid for %(expiration_days)s days.\n"
@@ -128,8 +130,8 @@ msgstr ""
 "Vous avez rempli une nouvelle inscription qui doit être activée pour être "
 "finalisée.\n"
 "\n"
-"Cliquez simplement sur le lien suivant pour procéder : http://%(website_url)"
-"s/%(activation_url)s\n"
+"Cliquez simplement sur le lien suivant pour procéder : http://%(website_url)s"
+"%(activation_url)s\n"
 "\n"
 "Ce lien ne sera valide que pour %(expiration_days)s jours.\n"
 "\n"
@@ -144,43 +146,46 @@ msgid "Registration blocked"
 msgstr "Inscription bloquée"
 
 #: templates/registration/blocked.html:6
-msgid "This site does not accepts any registration"
-msgstr "Ce site n'accepte pas d'inscription"
+msgid "This site does not accepts any registration."
+msgstr "Ce site n'accepte pas d'inscription."
 
-#: templates/registration/login.html:15
+#: templates/registration/login.html:12
 msgid "Not member"
 msgstr "Non membre"
 
-#: templates/registration/login.html:16
+#: templates/registration/login.html:13
 msgid "Lost password"
 msgstr "Mot de passe oublié"
 
-#: templates/registration/login.html:16
+#: templates/registration/login.html:13
 msgid "Ask for a new one"
 msgstr "Demandez-un nouveau"
 
-#: templates/registration/login.html:19
-#: templates/registration/password_reset_complete.html:11
-msgid "Log in"
-msgstr "Authentification"
+#: templates/registration/menu.html:5
+msgid "Django admin"
+msgstr ""
 
-#: templates/registration/password_reset_complete.html:9
-msgid "Password reset successfully"
-msgstr "Mot de passe changé avec succès"
+#: templates/registration/menu.html:8
+msgid "Logout"
+msgstr ""
 
-#: templates/registration/password_reset_complete.html:11
-msgid "Now you can"
-msgstr "Maintenant vous pouvez"
+#: templates/registration/password_reset_complete.html:8
+msgid "Password reset successfully."
+msgstr "Mot de passe changé avec succès."
+
+#: templates/registration/password_reset_complete.html:10
+msgid "Now you can Login"
+msgstr "Maintenant vous pouvez vous authentifier"
 
 #: templates/registration/password_reset_confirm.html:25
-msgid "Password reset failed"
-msgstr "Échec du changement de mot de passe"
+msgid "Password reset failed."
+msgstr "Échec du changement de mot de passe."
 
 #: templates/registration/password_reset_done.html:8
 msgid "Email with password reset instructions has been sent."
 msgstr "Un email vous a été envoyé avec un lien de confirmation."
 
-#: templates/registration/password_reset_email.html:3
+#: templates/registration/password_reset_email.html:2
 #, python-format
 msgid "Reset password at %(site_name)s"
 msgstr "Changement de mot de passe sur %(site_name)s"
@@ -192,10 +197,10 @@ msgstr "Vous n'êtes pas autorisé à valider cette inscription"
 #: templates/registration/registration_closed.html:6
 msgid ""
 "This is probably because it has allready be activated or the delay to "
-"activate your account has expired"
+"activate your account has expired."
 msgstr ""
 "Celà est probablement dû au fait que l'activation a déjà été accomplie ou "
-"bien que le délai d'expiration est dépassé"
+"bien que le délai d'expiration est dépassé."
 
 #: templates/registration/registration_complete.html:5
 msgid "You have completed your registration"
@@ -204,7 +209,7 @@ msgstr "Demande d'inscription terminée"
 #: templates/registration/registration_complete.html:6
 msgid ""
 "An activation email has been sent to your email account, you must use the "
-"activation link in this email to finally activate your account"
+"activation link in this email to finally activate your account."
 msgstr ""
 "Un email d'activation a été envoyé sur l'adresse de votre compte, vous devez "
 "utiliser le lien d'activation contenu dans cet email pour activer "

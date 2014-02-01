@@ -31,10 +31,11 @@ Links
 Requires
 ========
 
+* `Django`_ >= 1.5;
 * `autobreadcrumbs`_;
-* `django-braces`_ >= 0.2.1;
-* `django-registration`_ >= 0.8;
-* `django-simple-captcha`_ >= 0.3.4;
+* `django-braces`_ >= 1.0.0;
+* `django-registration`_ >= 1.0;
+* `django-simple-captcha`_ >= 0.4.1;
 
 Optionnal
 *********
@@ -94,3 +95,14 @@ In your settings you can add the following variables, all of them are optionnal 
 The methods which these Python path point just have to return the helper you did, see the ``sveeaccounts.crispies`` code for samples.
 
 Note that if you use `django-crispy-forms`_ you will have to override template form like ``login.html`` and ``registration.html`` to add the `django-crispy-forms`_ tags usage.
+
+Changes
+=======
+
+Version 0.4
+-----------
+
+* Drop version support for ``Django < 1.5`` and ``django-registration < 1.0``;
+* Some changes in default templates to use Foundation5 column names;
+* Add a ``menu.html`` for a full sample menu in default templates;
+* Update french translation catalog (PO file);

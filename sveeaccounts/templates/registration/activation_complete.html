@@ -1,9 +1,8 @@
 {% extends "registration/base.html" %}
 {% load i18n %}
-{% load url from future %}
 
 {% block registration_content %}{{ block.super }}
     <h3>{% blocktrans %}You have succeeded in activating your registration{% endblocktrans %}</h3>
     {% url 'auth_login' as login_url %}
-    <p>{% blocktrans %}Now you can <a href="{{ login_url }}">login</a>{% endblocktrans %}.</p>
+    <p>{% blocktrans %}Now you can <a href="{{ login_url }}">Login</a>.{% endblocktrans %}</p>
 {% endblock %}
