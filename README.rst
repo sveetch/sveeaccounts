@@ -100,7 +100,7 @@ Changes
 =======
 
 Version 0.4
------------
+***********
 
 * Drop version support for ``Django < 1.5`` and ``django-registration < 1.0``;
 * Some changes in default templates to use Foundation5 column names;
