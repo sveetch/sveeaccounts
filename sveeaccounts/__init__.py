@@ -2,4 +2,4 @@
 """
 Django application to embed all the registration stuff with captcha
 """
-__version__ = '0.4'
+__version__ = '0.5.0'

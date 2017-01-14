@@ -9,17 +9,17 @@
 Introduction
 ============
 
-**Sveetchies-account** is a `Django`_ application to embed all the registration stuff using 
+**Sveetchies-account** is a `Django`_ application to embed all the registration stuff using
 `django-registration`_ and `django-simple-captcha`_.
 
 This is not really intended to be a generic app, so use it at your own risk.
 
-It is an implementation of an inherited `django-registration`_ backend with 
-`django-simple-captcha`_ usage and with a `UserProfileBase` abstract model (and his 
-form, and his form view) that can be used as a base for user profiles. 
+It is an implementation of a `django-registration`_ backend with
+`django-simple-captcha`_ and a ``UserProfileBase`` abstract model (and his
+form, and his form view) that can be used as a base for user profiles.
 
-Also it implements `autobreadcrumbs`_, optionnal user profile form, optionnal password 
-reset views, `django-crispy-forms`_ is fully supported and it contains all needed 
+Also it implements `autobreadcrumbs`_, optionnal user profile form, optionnal password
+reset views, `django-crispy-forms`_ is fully supported and it contains all needed
 templates to demonstrate usage.
 
 Links
@@ -31,11 +31,11 @@ Links
 Requires
 ========
 
-* `Django`_ >= 1.5;
-* `autobreadcrumbs`_;
-* `django-braces`_ >= 1.0.0;
-* `django-registration`_ >= 1.0;
-* `django-simple-captcha`_ >= 0.4.1;
+* `Django`_ >=1.5, <1.7;
+* `autobreadcrumbs`_ <2.0.0;
+* `django-braces`_ >= 1.0.0, <1.8.0;
+* `django-registration`_ >= 1.0, <2.0;
+* `django-simple-captcha`_ >= 0.4.1, <0.4.7;
 
 Optionnal
 *********
@@ -45,20 +45,7 @@ Optionnal
 Install
 =======
 
-PIL issue
-*********
-
-If you are installing this module within a **virtualenv**, you would have issue with PIL that probably won't be compiled with the **Freetype** support that is used by `django-simple-captcha`_.
-
-To resolve this, uninstall your PIL install within your **virtualenv** : ::
-
-    pip uninstall PIL
-
-Then you will have to install Freetype2 devel library on your system with your prefered package manager, then install `Pillow`_ : ::
-
-    pip install Pillow
-
-It will detect the devel libraries from your system and will compile with their support, problem resolved.
+    pip install sveeaccounts
 
 Settings
 ********
@@ -98,6 +85,13 @@ Note that if you use `django-crispy-forms`_ you will have to override template f
 
 Changes
 =======
+
+Version 0.5.0
+*************
+
+* Drop uidb36 in favor of uidb64 (support for django 1.6+);
+* Fixed requirements versions;
+
 
 Version 0.4
 ***********
