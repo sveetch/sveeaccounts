@@ -63,6 +63,6 @@ if not PASSWORD_RESET_BLOCKED:
         # Password reset views for anonymous (copy paste from contrib.auth)
         url(r'^password/$', auth_views.password_reset, {'password_reset_form': PasswordResetForm}, name='auth_password_reset'),
         url(r'^password/reset/done/$', 'django.contrib.auth.views.password_reset_done', name='password_reset_done'),
-        url(r'^password/reset/(?P<uidb36>[0-9A-Za-z]+)-(?P<token>.+)/$', auth_views.password_reset_confirm, {'set_password_form': PasswordResetChangeForm}, name='auth_password_reset_confirm'),
+        url(r'^password/reset/(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)/$', auth_views.password_reset_confirm, {'set_password_form': PasswordResetChangeForm}, name='auth_password_reset_confirm'),
         url(r'^password/reset/complete/$', 'django.contrib.auth.views.password_reset_complete', name='password_reset_complete'),
     )
